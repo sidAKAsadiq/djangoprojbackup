@@ -1,0 +1,60 @@
+{% extends 'common.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+
+    {% block content %}
+
+<style>
+    .home-container{
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+    }
+
+
+</style>
+
+
+<!--  Div for the whole page  -->
+<div class="home-container">
+
+    <!--  Div for the left coloum showing topics  -->    
+    <div>
+        {% include 'main/topics_component.html' %}
+    </div>
+
+    <!--  Div for middle coloum showing a preview of rooms  -->
+    <div>
+
+        <a href="{% url 'create-room' %}">Create Room</a>
+        <h4>{{rooms_count}} of {{total_count}} results </h4>
+        <hr>
+        <div>
+    
+            
+                {% include 'main/feed_component.html' %}
+    
+    
+        </div>
+
+    </div>
+
+    <div>
+        {% include 'main/activity_component.html' %}
+    </div>
+
+
+
+</div>
+
+
+
+
+    {% endblock %}
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends 'common.html' %}
+
+{% block content %}
+
+<form method="POST" action="">
+    {% csrf_token %}
+    {% if page == "msg" %}
+    <p>Confirm the deletion of "{{obj.matter}}"</p>
+    {% else %}
+    <p>Confirm the deletion of "{{obj.name}}"</p>
+    {% endif %}
+    <a href="{{request.META.HTTP_REFERER}}">Back</a>
+    <input type="submit" value="Delete"/>
+</form>
+
+{% endblock %}
